@@ -398,3 +398,5 @@ Temporary Items
 dist
 .webpack
 .serverless/**/*.zip
+prisma/sqlite/*.db
+prisma/sqlite/*.db-journal

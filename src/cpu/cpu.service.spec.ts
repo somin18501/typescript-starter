@@ -1,4 +1,5 @@
 import { Test, TestingModule } from '@nestjs/testing';
+import { PowerService } from 'src/power/power.service';
 import { CpuService } from './cpu.service';
 
 describe('CpuService', () => {
@@ -6,7 +7,13 @@ describe('CpuService', () => {
 
   beforeEach(async () => {
     const module: TestingModule = await Test.createTestingModule({
-      providers: [CpuService],
+      providers: [
+        CpuService,
+        {
+          provide: PowerService,
+          useValue: { supplyPower: jest.fn() },
+        },
+      ],
     }).compile();
 
     service = module.get<CpuService>(CpuService);

@@ -1,7 +1,7 @@
 import { NotFoundException } from '@nestjs/common';
 import { Test, TestingModule } from '@nestjs/testing';
 import { AuthService } from 'src/users/auth.service';
-import { User } from 'src/users/user.entity';
+import { User } from 'src/users/user.model';
 import { UsersController } from 'src/users/users.controller';
 import { UsersService } from 'src/users/users.service';
 

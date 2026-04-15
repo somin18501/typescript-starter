@@ -1,13 +1,10 @@
 import { MiddlewareConsumer, Module } from '@nestjs/common';
-import { TypeOrmModule } from '@nestjs/typeorm';
 import { AuthService } from 'src/users/auth.service';
 import { CurrentUserMiddleware } from 'src/users/middlewares/current-user.middleware';
-import { User } from 'src/users/user.entity';
 import { UsersController } from 'src/users/users.controller';
 import { UsersService } from 'src/users/users.service';
 
 @Module({
-  imports: [TypeOrmModule.forFeature([User])],
   controllers: [UsersController],
   providers: [
     UsersService,

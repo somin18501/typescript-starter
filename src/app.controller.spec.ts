@@ -12,10 +12,10 @@ describe('AppController', () => {
     }).compile();
   });
 
-  describe('getHello', () => {
+  describe('getRootRoute', () => {
     it('should return "Hello World!"', () => {
       const appController = app.get(AppController);
-      expect(appController.getHello()).toBe('Hello World!');
+      expect(appController.getRootRoute()).toBe('Hello World!');
     });
   });
 });

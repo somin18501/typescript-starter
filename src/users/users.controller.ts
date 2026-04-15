@@ -18,8 +18,8 @@ import { CurrentUser } from 'src/users/decorators/current-user.decorator';
 import { CreateUserDto } from 'src/users/dtos/create-user.dto';
 import { UpdateUserDto } from 'src/users/dtos/update-user.dto';
 import { UserOutputDto } from 'src/users/dtos/user-output.dto';
-import { User } from 'src/users/user.entity';
 import { UsersService } from 'src/users/users.service';
+import type { User } from 'src/users/user.model';
 
 @Controller('auth')
 @Serialize(UserOutputDto)

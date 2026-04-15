@@ -1,7 +1,7 @@
 import { BadRequestException } from '@nestjs/common';
 import { Test } from '@nestjs/testing';
 import { AuthService, SEPARATOR } from 'src/users/auth.service';
-import { User } from 'src/users/user.entity';
+import { User } from 'src/users/user.model';
 import { UsersService } from 'src/users/users.service';
 
 describe('AuthService', () => {

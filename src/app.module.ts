@@ -1,10 +1,10 @@
 import { MiddlewareConsumer, Module, ValidationPipe } from '@nestjs/common';
 import { ConfigModule, ConfigService } from '@nestjs/config';
 import { APP_PIPE } from '@nestjs/core';
-import { TypeOrmModule } from '@nestjs/typeorm';
 import cookieSession from 'cookie-session';
 import { AppController } from 'src/app.controller';
 import { AppService } from 'src/app.service';
+import { PrismaModule } from 'src/prisma/prisma.module';
 import { ReportsModule } from 'src/reports/reports.module';
 import { UsersModule } from 'src/users/users.module';
 
@@ -24,16 +24,7 @@ import { UsersModule } from 'src/users/users.module';
       isGlobal: true,
       envFilePath: `.env.${process.env.NODE_ENV}`,
     }),
-    TypeOrmModule.forRoot(),
-    // TypeOrmModule.forRootAsync({
-    //   inject: [ConfigService],
-    //   useFactory: (config: ConfigService) => ({
-    //     type: 'sqlite',
-    //     database: config.get<string>('DB_NAME'),
-    //     entities: [User, Report],
-    //     synchronize: true,
-    //   }),
-    // }),
+    PrismaModule,
     UsersModule,
     ReportsModule,
     // MessagesModule,

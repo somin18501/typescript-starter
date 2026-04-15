@@ -17,7 +17,20 @@
     "test:cov": "cross-env NODE_ENV=test jest --coverage",
     "test:debug": "cross-env NODE_ENV=test node --inspect-brk -r tsconfig-paths/register -r ts-node/register node_modules/jest/bin/jest --runInBand",
     "test:e2e": "cross-env NODE_ENV=test jest --config ./test/jest-e2e.json --maxWorkers=1",
-    "typeorm": "cross-env NODE_ENV=development node --require ts-node/register ./node_modules/typeorm/cli.js"
+    "prebuild": "cross-env NODE_ENV=development node scripts/setup-prisma-env.mjs --generate-only",
+    "prestart": "cross-env NODE_ENV=development node scripts/setup-prisma-env.mjs",
+    "prestart:dev": "cross-env NODE_ENV=development node scripts/setup-prisma-env.mjs",
+    "prestart:debug": "cross-env NODE_ENV=development node scripts/setup-prisma-env.mjs",
+    "prestart:prod": "cross-env NODE_ENV=production node scripts/setup-prisma-env.mjs --generate-only",
+    "pretest": "cross-env NODE_ENV=test node scripts/setup-prisma-env.mjs",
+    "pretest:watch": "cross-env NODE_ENV=test node scripts/setup-prisma-env.mjs",
+    "pretest:cov": "cross-env NODE_ENV=test node scripts/setup-prisma-env.mjs",
+    "pretest:debug": "cross-env NODE_ENV=test node scripts/setup-prisma-env.mjs",
+    "pretest:e2e": "cross-env NODE_ENV=test node scripts/setup-prisma-env.mjs",
+    "prisma:generate": "node scripts/run-prisma.mjs generate",
+    "prisma:db:push": "node scripts/run-prisma.mjs db push",
+    "prisma:migrate:dev": "node scripts/run-prisma.mjs migrate dev",
+    "prisma:migrate:deploy": "node scripts/run-prisma.mjs migrate deploy"
   },
   "engines": {
     "npm": ">=10.0.0",
@@ -28,7 +41,7 @@
     "@nestjs/config": "^4.0.4",
     "@nestjs/core": "^11.0.1",
     "@nestjs/platform-express": "^11.1.11",
-    "@nestjs/typeorm": "^11.0.1",
+    "@prisma/client": "^6.15.0",
     "@types/cookie-session": "^2.0.49",
     "class-transformer": "^0.5.1",
     "class-validator": "^0.15.1",
@@ -37,8 +50,7 @@
     "pg": "^8.20.0",
     "reflect-metadata": "^0.2.2",
     "rxjs": "^7.8.1",
-    "sqlite3": "^5.1.7",
-    "typeorm": "^0.3.28"
+    "sqlite3": "^5.1.7"
   },
   "devDependencies": {
     "@eslint/eslintrc": "^3.2.0",
@@ -58,6 +70,7 @@
     "globals": "^15.14.0",
     "jest": "^29.7.0",
     "prettier": "^3.4.2",
+    "prisma": "^6.15.0",
     "source-map-support": "^0.5.21",
     "supertest": "^7.0.0",
     "ts-jest": "^29.2.5",

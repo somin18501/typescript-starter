@@ -17,7 +17,7 @@ import { GetEstimateDto } from 'src/reports/dtos/get-estimate.dto';
 import { ReportOutputDto } from 'src/reports/dtos/report-output.dto';
 import { ReportsService } from 'src/reports/reports.service';
 import { CurrentUser } from 'src/users/decorators/current-user.decorator';
-import { User } from 'src/users/user.entity';
+import type { User } from 'src/users/user.model';
 
 @Controller('reports')
 export class ReportsController {

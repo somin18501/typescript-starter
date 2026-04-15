@@ -1,7 +1,7 @@
 import { INestApplication } from '@nestjs/common';
 import { Test } from '@nestjs/testing';
 // import { setupApp } from 'src/setup-app';
-import { User } from 'src/users/user.entity';
+import { User } from 'src/users/user.model';
 import request from 'supertest';
 import { App } from 'supertest/types';
 import { AppModule } from './../src/app.module';
